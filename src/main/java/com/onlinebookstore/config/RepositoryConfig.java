@@ -33,6 +33,7 @@ public class RepositoryConfig implements RepositoryRestConfigurer {
                 .map(Type::getJavaType)
                 .toArray(Class[]::new)
         );
+
         //RepositoryRestConfigurer.super.configureRepositoryRestConfiguration(config, cors);
     }
 }
