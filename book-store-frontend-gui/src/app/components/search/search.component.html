@@ -1,0 +1,6 @@
+<form class="d-flex" role="search">
+  <input  #searchInput (keyup.enter)="searchByKeyword(searchInput.value)"
+          class="form-control me-2" type="text" placeholder="Search Books" aria-label="Search">
+  <button class="btn btn-outline-success"
+          (click)="searchByKeyword(searchInput.value)" type="submit">Search</button>
+</form>

@@ -59,10 +59,7 @@
             </form>
           </div>
           <div class="container">
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search Books" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+            <app-search></app-search>
           </div>
         </div>
       </div>
@@ -81,17 +78,21 @@
       <div class="container px-4 px-lg-5 mt-5">
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 
-          <div class="col mb-5" *ngFor="let book of books">
+          <div class="col mb-5" *ngFor="let book of books | paginate: { itemsPerPage: 3, currentPage: p }">
             <div class="card h-100">
               <!-- Sale badge-->
               <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
               <!-- Product image-->
-              <img class="card-img-top img-responsive" style="height: 380px" src={{book.imageUrl}} alt="..." />
+              <a routerLink="/books/{{book.id}}">
+                <img class="card-img-top img-responsive" style="height: 380px" src={{book.imageUrl}} alt="..." />
+              </a>
               <!-- Product details-->
               <div class="card-body p-4">
                 <div class="text-center">
                   <!-- Product name-->
-                  <h5 class="fw-bolder"> {{book.name}}</h5>
+                  <h5 class="fw-bolder">
+                    <a routerLink="/books/{{book.id}}" class="nav-link text-success">{{book.name}}</a>
+                  </h5>
                   <p class="text-center"> {{book.description}}</p>
                   <!-- Product reviews-->
                   <div class="d-flex justify-content-center small text-warning mb-2">
@@ -113,8 +114,33 @@
             </div>
           </div>
 
+
         </div>
+
+        <div *ngIf="books?.length==0" class="col-md-12 text-center fw-bold alert-warning">
+          No Book Found!
+        </div>
+
       </div>
+<!--      pagination-->
+     <div class="container text-center">
+       <div class="row">
+<!--         handle page-size-->
+         <div class="col-md-6">
+               Items per Page:
+               <select (change)="handlePageSizeChange($event)">
+                 <option *ngFor="let size of pageSizes" [value]="size">
+                   {{ size }}
+                 </option>
+               </select>
+         </div>
+<!--         handle pagination-->
+         <div class="col-md-6">
+           <pagination-controls (pageChange)="pageChangeEvent($event)"></pagination-controls>
+         </div>
+       </div>
+     </div>
+      <!--<jw-pagination [items]="books" (changePage)="onChangePage($event)"></jw-pagination> for anglular 8-10-->
     </section>
   </div>
 </div>

@@ -1,0 +1,32 @@
+ <!-- Section-->
+    <section class="py-5">
+      <div class="container px-4 px-lg-5 mt-5">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2 row-cols-sm-1 row-cols-sm-1 justify-content-center">
+          <!--          to display book image-->
+          <div class="container">
+            <div class="col-12 col-md-4 text-center">
+              <div class="thumbnail">
+                <img class="card-img-top img-responsive" style="height: 300px; width: 250px; margin-left: 50px" src="{{book.imageUrl}}">
+              </div>
+            </div>
+          </div>
+          <!--          to display book info-->
+          <div class="container m-auto p-1">
+            <div class="col-12 col-md-8">
+              <h3>{{book.name}}</h3>
+              <hr>
+              <p>{{book.description}}</p>
+              <hr>
+              <h4>Price: {{book.unitPrice | currency:"EUR":"symbol"}}</h4>
+              <hr>
+              <h6>Quantity available: {{book.unitsInStock}} <span>pcs</span></h6>
+              <hr>
+              <a routerLink="/books" class="btn btn-outline-success"><i class="fas fa-arrow-left"></i> Back</a>&nbsp;&nbsp;
+              <button (click)="addToCart(book)" class="btn btn-outline-warning">Add to Cart <i class="fas fa-cart-arrow-down"></i></button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>

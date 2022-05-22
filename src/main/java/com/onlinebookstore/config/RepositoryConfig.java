@@ -34,6 +34,8 @@ public class RepositoryConfig implements RepositoryRestConfigurer {
                 .toArray(Class[]::new)
         );
 
+        //config.setDefaultPageSize(5); //to limit the item in the page
+
         //RepositoryRestConfigurer.super.configureRepositoryRestConfiguration(config, cors);
     }
 }

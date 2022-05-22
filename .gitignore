@@ -32,5 +32,6 @@ build/
 ### VS Code ###
 .vscode/
 /online-book-store/target/
-/online-book-store/book-store-frontend/node_modules
+/online-book-store/book-store-frontend/book-store-gui/node_modules
+/online-book-store/book-store-frontend-gui/node_modules
 
