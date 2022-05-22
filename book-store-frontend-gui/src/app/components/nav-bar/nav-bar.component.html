@@ -1,0 +1,35 @@
+<nav id="navbar_top" class="navbar navbar-expand-lg navbar-light bg-warning">
+  <div class="container">
+    <div class="container px-4 px-lg-5">
+      <!--<a class="navbar-brand" href="#!">Online Book Store</a>-->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+          <li class="nav-item"><a class="nav-link">About</a></li>
+          <li class="nav-item"><a class="nav-link">Contact</a></li>
+          <li class="nav-item dropdown" id="drop-down">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Book Category</a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <app-book-category></app-book-category>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <div class="container">
+              <app-search></app-search>
+            </div>
+          </li>
+        </ul>
+
+
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4" style="float: right">
+          <li class="nav-item">
+            <div class="container">
+              <app-cart-status></app-cart-status>
+            </div>
+          </li>
+          <li class="nav-item"><a class="nav-link">Login</a></li>
+          <li class="nav-item"><a class="nav-link">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

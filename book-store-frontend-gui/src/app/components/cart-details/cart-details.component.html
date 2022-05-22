@@ -1,0 +1,67 @@
+<div class="container" *ngIf="cartItems.length>0">
+  <table class="table table-success table-striped-columns" >
+    <thead>
+    <tr>
+      <th scope="col">Book Image</th>
+      <th scope="col">Book Details</th>
+      <th scope="col">Price Details</th>
+    </tr>
+    </thead>
+    <tbody >
+    <tr *ngFor="let item of cartItems">
+      <td>
+        <img [src]="item.imageUrl" class="img-responsive" style="width: 150px; height: 200px;">
+      </td>
+      <td>
+        <p>Book Name: {{item.name}}</p>
+        <p>Unit Price: {{item.unitPrice|currency:"EUR"}}</p>
+      </td>
+      <td>
+        <div class="row">
+          <div class="col-md-4">
+            Quantity:
+          </div>
+          <div class="col-md-4">
+
+          </div>
+          <div class="col-md-4">
+            <button class="btn btn-sm btn-outline-danger btn-bg-dark float-right" (click)="removeCartItem(item)">
+              <i class="fas fa-trash"></i>
+            </button>
+
+          </div>
+          <div>
+            <hr>
+          </div>
+          <div class="col-md-4">
+            <button class="btn btn-sm btn-outline-success btn-bg-dark float-left" (click)="increaseQuantity(item)">
+             <i class="fas fa-plus"></i>
+           </button>
+          </div>
+          <div class="col-md-4">
+            {{item.quantity}}
+          </div>
+          <div class="col-md-4">
+            <button class="btn btn-sm btn-outline-success btn-bg-dark float-left" (click)="decreaseQuantity(item)">
+              <i class="fas fa-minus"></i>
+            </button>
+          </div>
+
+        </div>
+        <hr><p>Subtotal: {{item.quantity*item.unitPrice | currency: "EUR"}}</p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2"></td>
+      <td>
+        <p><b>Total Quantity: {{totalQuantity}}</b></p>
+        <p><b>Shipping: FREE</b></p>
+        <p><b>Total Price: {{totalPrice|currency:"EUR"}}</b></p>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<div class="alert alert-warning" *ngIf="cartItems.length==0">
+  Your Cart is Empty!
+</div>
